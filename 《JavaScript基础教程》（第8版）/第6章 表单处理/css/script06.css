@@ -12,3 +12,19 @@ label.invalid {
     color: #F00;
     font-weight: bold;
 }
+
+select {
+    margin-left: 80px;
+}
+
+input {
+    margin-left: 30px;
+}
+
+input+select,input+input {
+    margin-left: 20px;
+}
+
+.centered {
+    text-align: center;
+}
