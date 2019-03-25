@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Article Example</title>
+</head>
+<style>
+    #divAdditionalLinks {
+        float: right;
+        padding: 10px;
+        border: 1px solid navy;
+        background-color: #cccccc;
+        display: none;
+    }
+</style>
+
+<body>
+    <h1>Article Title</h1>
+    <div id="divAdditionalLinks"></div>
+    <div id="divPage1">
+        <!-- article content here -->
+    </div>
+    <h4>Additional Information</h4>
+    <ul>
+        <li><a href="111">111</a></li>
+        <li><a href="1112">222</a></li>
+        <li><a href="1113">333</a></li>
+    </ul>
+</body>
+
+</html>
+
+<script>
+    function downloadLinks() {
+        var oXHR = zXmlHttp.createRequest();
+        oXHR.open("get", "AdditionalLinks.txt", true);
+        oXHR.onreadystatechange = function() {
+            if (oXHR.readyState == 4) {
+                if (oXHR.status == 200 || oXHR.status == 304) {
+                    var divAdditionalLinks = document.getElementById("divAdditionalLinks");
+                    divAdditionalLinks.innerHTML = oXHR.responseText;
+                    divAdditionalLinks.style.display = "block";
+                }
+            }
+        }
+        oXHR.send(null);
+    }
+</script>
