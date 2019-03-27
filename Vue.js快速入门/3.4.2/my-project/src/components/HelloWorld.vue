@@ -35,7 +35,7 @@
           Twitter
         </a>
       </li>
-      <br>
+      <br />
       <li>
         <a
           href="http://vuejs-templates.github.io/webpack/"
@@ -96,7 +96,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {

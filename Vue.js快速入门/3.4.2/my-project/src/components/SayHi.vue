@@ -1,12 +1,13 @@
+
 <template>
   <div class="hi">
-    {{message}}
+    Hi Vue!
   </div>
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       message: '你好Vue! 本消息来自于变量'
     }

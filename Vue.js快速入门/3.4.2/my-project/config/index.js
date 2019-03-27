@@ -10,7 +10,17 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+
+    // 代理表格
+    proxyTable: {
+      '/api': {        // 1.对所有以 "/api" 开头的url 做处理
+      target: 'http://siwei.me',  // 3. 转发 siwei.me 上
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': ''    // 2. 把url中的 "/api" 去掉
+      }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

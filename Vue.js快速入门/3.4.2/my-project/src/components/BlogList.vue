@@ -1,0 +1,47 @@
+<template>
+  <div>
+    {{ title }}
+    <table>
+      <tr
+        v-for="blog in blogs"
+        :key="blog.id"
+      >
+        <td >
+          <router-link :to="{name: 'Blog', query: {id:blog.id}}">{{blog}}</router-link>
+        </td>
+      </tr>
+    </table>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      title: '博客列表页',
+      blogs: []
+    }
+  },
+  mounted () {
+    this.$http.get('api/interface/blogs/all', {title: '', blog_body: ''}).then((response) => {
+      console.info(response.body)
+      this.blogs = response.body.blogs
+    }, (response) => {
+      console.log(response)
+    })
+  },
+  methods: {
+    show_blog: function (blogId) {
+      this.$router.push({name: 'Blog', query: {id: blogId}})
+    }
+  }
+}
+</script>
+<style>
+td {
+  border-bottom: 1px solid grey;
+}
+div {
+  text-align: center;
+}
+</style>
