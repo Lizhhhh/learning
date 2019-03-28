@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script src='https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js'></script>
+  </head>
+  <body>
+    <div id='app'>
+      <p>
+        我所在的城市: <input v-model='city' />{{city}}
+      </p>
+      <p>
+        我所在的街道: <input v-model='district' />{{district}}
+      </p>
+      <p>我所在的详细地址: {{full_address}}</p>
+    </div>
+    <script>
+      var app = new Vue({
+        el:'#app',
+        data: {
+          city: '北京市',
+          district: '朝阳区',
+          full_address: '某市某区'
+        },
+        watch: {
+          city: function (city) {
+            this.full_address = city + '-' + this.district
+          },
+          district: function (district) {
+            this.full_address = this.city + '-' + district
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

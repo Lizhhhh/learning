@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id='app'>
+      {{message}}
+        <br />
+        <button v-on:click='highlight' style='margin-top: 50px'>真的吗</button>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'this很重要的.不要忘了哟~'
+            },
+            methods: {
+                highlight: function() {
+                    if (this.message.split('~') < 1) {
+                        this.message += '是的, 工资还会涨'
+                    } else {
+                        this.message += '可能吗!'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
