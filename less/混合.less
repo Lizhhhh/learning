@@ -1,0 +1,29 @@
+// 混合可以将一个定义好的class A轻松的引入到另一个class B中,从而简单实现class B继承class A的所有属性。
+// 我们还可以带参数地调用,就像使用函数一样
+
+.rounded-corners (@radius: 5px) {
+    border-radius: @radius;
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+}
+
+#header {
+    .rounded-corners;
+}
+
+#footer {
+    .rounded-corners(10px);
+}
+
+// 生成的CSS
+#header {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+#footer {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}

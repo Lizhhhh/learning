@@ -1,0 +1,29 @@
+// 运算提供了加、减、乘、除操作;我们可以做属性值和颜色的运算,这样就可以实现属性值之间的复杂关系
+
+// LESS
+@the-border: 1px;
+@base-color: #111;
+@red: #842210;
+
+#header {
+    color: @base-color * 3;
+    border-left: @the-border;
+    border-right: @the-border *2;
+}
+
+#footer {
+    color: @base-color + #003300;
+    border-color: desaturate(@rad, 10%);
+}
+
+// 生成的CSS
+#header {
+    color: #333;
+    border-left: 1px;
+    border-right: 2px;
+}
+
+#footer {
+    color: #114411;
+    border-color: #7d2717;
+}
