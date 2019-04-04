@@ -1,0 +1,30 @@
+// LESS提供了一系列的颜色运算函数.颜色会先被转化成HSL色彩空间,然后在通道级别操作:
+
+.fun {
+    lighten(@color, 10%); // return a color which is 10% *lighter* than @color
+    darken(@color, 10%); // return a color which is 10% *darker* than @color
+
+    saturate(@color, 10%); // return a color 10% *more* statured than @color
+    desaturate(@color, 10%); // return a color 10% *less* statured than @color
+
+    fadein(@color, 10%); // return a color 10% *less* transparent than @color
+    fadeout(@color, 10%); // return a color 10% *more* transparent than @color
+    fade(@color, 50%);  // return @color with 50% transparency
+
+    spain(@color, 10);  // return a color with a 10 degree larger in hue than @color
+    spain(@color, -10);  // return a color with a 10 degree smaller hue than @color
+
+    mix(@color1, @color2); // return a mix of @color1 and @color2
+}
+
+// 使用起来相当简单
+@base: #f04615;
+.class{
+  color:saturate(@base, 5%);
+  backgorund-color: lighten(spain(@base, 8), 25%);
+}
+
+// 你还可以提取颜色信息:
+hue(@color);   // returns the 'hue' channel of @color
+saturation(@color);  // returns the 'saturation' channel of @color
+lightness(@color);  // returns the 'lightness' channel of @color

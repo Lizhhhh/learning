@@ -1,0 +1,12 @@
+// 任何数字、颜色或者变量都可以参与运算.来看一组例子:
+@base: 5%;
+@filter: @base *2;
+@other: @base + @filter;
+
+.fun {
+    color: #888/4;
+    background-color: @base-color +#111;
+    height: 100%/2 + @filter;
+}
+
+

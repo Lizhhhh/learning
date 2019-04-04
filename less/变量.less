@@ -18,3 +18,26 @@ h2 {
 h2 {
     color: #4D926F;
 }
+
+// 变量
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+#header {
+    color: @light-blue;
+}
+
+// CSS
+#header {
+    color: #6c94be;
+}
+
+// 用变量名定义变量
+@fnord: "I am fnord.";
+@var: "fnord";
+@content: @var;
+
+/* 解析之后
+content: "I am fnord.";
+*/
+

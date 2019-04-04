@@ -1,0 +1,17 @@
+// LESS中的作用域跟其他编程语言非常类似,首先会从本地查找变量或者混合模块,如果没有找到的话会去父级作用域中查找,直到找到为止.
+@var: red;
+
+#page {
+    @var: white;
+
+    #header {
+        color: @var; // white
+    }
+}
+
+#footer {
+    color: @var; // red
+}
+
+// 字符串插值
+// 变量可以
