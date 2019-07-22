@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+    <title>测试接口专用:</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" placeholder="请输入测试url" v-model="url" @blur="searchUrl()">{{url}}
+        <!-- 协议(protocal): <input type="text" placeholder="请输入测试url" v-model="protocal" @blur="searchUrl()">
+        主机名(host): <input type="text" placeholder="请输入测试url" v-model="host" @blur="searchUrl()">
+        端口号(port): <input type="text" placeholder="请输入测试url" v-model="prot" @blur="searchUrl()">
+        路径(path): <input type="text" placeholder="请输入测试url" v-model="path" @blur="searchUrl()"> -->
+    </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            msg: '',
+            protocal: 'http://',
+            host: '192.168.1.13:',
+            port: '8080/',
+            path: 'PowerPlantSystem/',
+            url: 'http://192.168.1.129:9080/PowerPlantSystem/point/getPointByTime',
+        },
+        methods: {
+            searchUrl: function() {
+                let params = {
+                    modelId: 194,
+                    startTime: '2019-02-14 16:13:47',
+                    endTime: '2019-03-22 11:43:22'
+                }
+                let myData = new FormData();
+                for (let key of Object.keys(params)) {
+                    myData.append(key, params[key])
+                }
+                let xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState !== 4) { // 此时会有4个状态,当为4时,表示成功
+                        return
+                    } else { // 请求成功
+                        if (JSON.parse(xhr.responseText).code === 200) {
+                            document.append(xhr.responseText);
+                            console.log(xhr.responseText)
+                        } else {
+                            console.log(xhr.status);
+                        }
+                    }
+                }
+                xhr.open("post", this.url, true);
+                xhr.send(myData);
+            },
+        }
+    })
+</script>
+<style>
+    input {
+        width: 800px;
+        margin: 20px;
+        padding: 5px;
+    }
+</style>
