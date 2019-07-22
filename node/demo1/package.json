@@ -1,0 +1,15 @@
+{
+  "name": "demo1",
+  "version": "1.0.0",
+  "main": "fs.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lizhhhh <543288744@qq.com>",
+  "license": "ISC",
+  "description": ""
+}
