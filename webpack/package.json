@@ -1,0 +1,17 @@
+{
+    "name": "webpack01",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack",
+        "dev": "webpack-dev-server"
+    },
+    "author": "lizhhhh <543288744@qq.com>",
+    "license": "ISC",
+    "devDependencies": {
+        "webpack": "^4.36.1",
+        "webpack-cli": "^3.3.6",
+        "webpack-dev-server": "^3.7.2"
+    }
+}
