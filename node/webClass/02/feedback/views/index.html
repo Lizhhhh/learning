@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/lib/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="header container">
+        <div class="page-header" style="margin-bottom: 15px;">
+            <h1>飞凌视讯<small>留言板1.0</small></h1>
+            <a class="btn btn-success" href="/post">发表留言</a>
+        </div>
+    </div>
+    <div class="comments container">
+        <ul class="list-group">
+            <!-- <li class="list-group-item">Cars justo odio</li> -->
+            {{each comments}}
+            <li class="list-group-item">{{ $value.name }}说: {{ $value.message }}
+                <span style="float:right;">{{ $value.dataTime }}</span>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</body>
+
+</html>

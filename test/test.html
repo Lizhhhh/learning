@@ -23,19 +23,26 @@
             host: '192.168.1.13:',
             port: '8080/',
             path: 'PowerPlantSystem/',
-            url: 'http://192.168.1.129:9080/PowerPlantSystem/point/getPointByTime',
+            url: 'http://192.168.1.129:9080/facesystemmysql/group/getGroupList',
         },
         methods: {
             searchUrl: function() {
-                let params = {
-                    modelId: 194,
-                    startTime: '2019-02-14 16:13:47',
-                    endTime: '2019-03-22 11:43:22'
-                }
-                let myData = new FormData();
-                for (let key of Object.keys(params)) {
-                    myData.append(key, params[key])
-                }
+
+                let url = 'http://192.168.1.129:9080/facesystemmysql/group/getGroupList';
+                $.post(url).success((res) => {
+                    console.log(res, 'ts!');
+                })
+
+
+                // let params = {
+                //     modelId: 194,
+                //     startTime: '2019-02-14 16:13:47',
+                //     endTime: '2019-03-22 11:43:22'
+                // }
+                // let myData = new FormData();
+                // for (let key of Object.keys(params)) {
+                //     myData.append(key, params[key])
+                // }
                 let xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = () => {
                     if (xhr.readyState !== 4) { // 此时会有4个状态,当为4时,表示成功
@@ -50,7 +57,8 @@
                     }
                 }
                 xhr.open("post", this.url, true);
-                xhr.send(myData);
+                // xhr.send(myData);
+                xhr.send(null);
             },
         }
     })
