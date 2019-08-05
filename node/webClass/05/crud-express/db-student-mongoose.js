@@ -15,7 +15,7 @@ var studentSchema = new Schema({
         default: 0
     },
     age: {
-        type: Number
+        type: String
     },
     hobbies: {
         type: String

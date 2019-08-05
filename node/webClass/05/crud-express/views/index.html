@@ -49,8 +49,8 @@
                                 <td>{{ $value.age }}</td>
                                 <td>{{ $value.hobbies }}</td>
                                 <td>
-                                    <a href="/students/edit?id={{ $value.id }} " method="GET">编辑</a>
-                                    <a href="/students/delete?id={{ $value.id }}" method="GET">删除</a>
+                                    <a href="/students/edit?id={{ $value._id }} " method="GET">编辑</a>
+                                    <a href="/students/delete?id={{ $value._id }}" method="GET">删除</a>
                                 </td>
                             </tr>
                             {{/each }}
