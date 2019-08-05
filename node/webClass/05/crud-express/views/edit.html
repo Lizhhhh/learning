@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>飞凌视讯学生管理系统 1.0</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/public/css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <h2 class="sub-header">添加学生</h2>
+                <form action="/students/edit" method="POST">
+                    <input type="hidden" value="{{ s.id }} " name="id">
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" value="{{ s.name }}" class="form-control" id="name" name="name" placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label>性别</label>
+                        <div>
+                            <label class="radio-inline">
+                                <input type="radio" name="gender" id="male" value="0" checked> 男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="gender" id="female" value="1"> 女
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">年龄</label>
+                        <input type="number" value="{{ s.age }}" class="form-control" id="age" name="age" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="hobbies">爱好</label>
+                        <input type="text" value="{{ s.hobbies }}" class="form-control" id="hobbies" name="hobbies" placeholder="">
+                    </div>
+                    <button type="submit" class="btn btn-default">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

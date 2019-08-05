@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>飞凌视讯学生管理系统 1.0</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/public/css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <h1 class="page-header">飞凌视讯学生管理系统 1.0</h1>
+                <h2 class="sub-header">学生信息</h2>
+                <a class="btn btn-success" href="/students/new">添加学生</a>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>姓名</th>
+                                <th>性别</th>
+                                <th>年龄</th>
+                                <th>爱好</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{each students}}
+                            <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $value.name }}</td>
+                                <td>{{ $value.gender }}</td>
+                                <td>{{ $value.age }}</td>
+                                <td>{{ $value.hobbies }}</td>
+                                <td>
+                                    <a href="/students/edit?id={{ $value.id }} " method="GET">编辑</a>
+                                    <a href="/students/delete?id={{ $value.id }}" method="GET">删除</a>
+                                </td>
+                            </tr>
+                            {{/each }}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
