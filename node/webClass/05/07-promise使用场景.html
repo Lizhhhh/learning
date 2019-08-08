@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-promise使用场景</title>
+</head>
+
+<body>
+    <form action="" id="user_form">
+        <div>
+            <label for="">用户名:</label>
+            <input type="text" value="admin">
+        </div>
+        <div>
+            <label for="">年龄:</label>
+            <input type="text" value="12">
+        </div>
+        <div>
+            <label for="">职业:</label>
+            <select name="" id="">
+                <option value="">学生</option>
+                <option value="">老师</option>
+                <option value="">司机</option>
+                <option value="">画家</option>
+                <option value="">演员</option>
+                <option value="">电子竞技</option>
+            </select>
+        </div>
+    </form>
+    <script type="text/template" id="tpl">
+        <div>
+          <label for="">用户名:</label>
+          <input type="text" value="{{ user.username }}">
+      </div>
+      <div>
+          <label for="">年龄:</label>
+          <input type="text" value="{{ user.age }}">
+      </div>
+      <div>
+          <label for="">职业:</label>
+          <select name="" id="">
+            {{ each jobs}}
+            {{ if user.job === $value.id }}
+               <option value="{{ $value.id }}" selected> {{ $value.name }}</option>
+            {{ else }}
+                <option value="{{ $value.id }}"> {{ $value.name }}</option>
+            {{ /if }}
+
+            {{ /each }}
+          </select>
+      </div>
+    </script>
+    <script src="node_modules/art-template/lib/template-web.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+</body>
+<script>
+    var data = {};
+    $.get("http://127.0.1:3000/users/4")
+        .then(function(userData) {
+            data.userData = userData;
+            return $.get("http://127.0.0.1:3000/jobs")
+        })
+        .then(function(jobsData) {
+            var htmlStr = template("tpl", {
+                user: data.userData,
+                jobs: jobsData
+            })
+            document.getElementById("user_form").innerHTML = htmlStr;
+        })
+    // get("http://127.0.0.1:3000/users/4", function(userData) {
+    //     get("http://127.0.0.1:3000/jobs", function(jobsData) {
+    //         var htmlStr = template("tpl", {
+    //             user: JSON.parse(userData),
+    //             jobs: JSON.parse(jobsData)
+    //         })
+    //         document.getElementById("user_form").innerHTML = htmlStr;
+
+    //     })
+    // })
+
+    function get(url, callback) {
+        var oReq = new XMLHttpRequest();
+        oReq.onload = function() {
+            callback(oReq.responseText)
+        }
+        oReq.open("get", url, true);
+        oReq.send();
+    }
+</script>
+
+</html>

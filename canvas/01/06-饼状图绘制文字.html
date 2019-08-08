@@ -12,11 +12,58 @@
     <canvas id="demo">
         您的浏览器不支持canvas. 请升级浏览器
     </canvas>
-    <script src="arg.js"></script>
-    <script src="position.js"></script>
+    <script src="./arg.js"></script>
+    <script src="./position.js"></script>
+    <script src="./drawSectorArea.js"></script>
+    <script src="./drawLabel.js"></script>
     <script>
         var canvas = document.getElementById("demo");
         ctx = canvas.getContext("2d");
+
+        canvas.width = 600;
+        canvas.height = 600;
+        canvas.style.border = "1px solid #000";
+
+
+        drawSectorArea(300, 300, 100, arg(-90), arg(-30), false, 'red');
+        drawSectorArea(300, 300, 100, arg(-30), arg(90), false, 'blue');
+        drawSectorArea(300, 300, 100, arg(90), arg(240), false, 'green');
+        drawSectorArea(300, 300, 100, arg(240), arg(-90), false, 'gray');
+
+        let list = [-60, 30, 150, -105];
+
+
+        list.forEach((item) => {
+            let params = {
+                center: [300, 300],
+                radius: 100,
+                arc: arg(item)
+            }
+            let [x, y] = position(params);
+            let text = (Math.abs(item) / 3.6).toFixed(4) + "%";
+            if (-90 < item && item < 90) {
+                ctx.textAlign = "start"
+            } else {
+                ctx.textAlign = "end"
+            }
+            drawLabel(text, x, y, ctx);
+        })
+
+        // let params = {
+        //     center: [300, 300],
+        //     radius: 100,
+        //     arc: arg(-60)
+        // }
+        // let [x, y] = position(params);
+
+        // ctx.moveTo(300, 300);
+        // ctx.fillStyle = "purple";
+        // ctx.font = "20px '微软雅黑'";
+        // ctx.textBaseLine = "bottom";
+        // ctx.textAlign = "left";
+        // ctx.fillText((1 / 6 * 100).toFixed(4) + '%', x, y);
+        // let text = (1 / 6 * 100).toFixed(4) + "%";
+        // drawLabel(text, x, y, ctx);
     </script>
 
 </body>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07-图片绘制api</title>
+</head>
+
+<body>
+    <canvas id="demo">
+        你的浏览器不支持canvas, 请升级浏览器
+    </canvas>
+    <script src="drawArrow.js"></script>
+    <script>
+        var canvas = document.getElementById("demo");
+        var ctx = canvas.getContext("2d");
+
+        canvas.width = 600;
+        canvas.height = 600;
+        canvas.style.border = "1px solid #000";
+
+        var arrow = new DrawArrow({
+            x0: 100,
+            y0: 500,
+            length: 400,
+            gap: 10,
+            ctx: ctx
+        });
+
+        arrow.initX();
+        arrow.initY();
+
+        let list = [0.4, 0.5, 0.8, 0.7, 0.1, 0.3];
+        arrow.drawLine({
+            list: list,
+            x1: 2,
+            gap: 50
+        });
+    </script>
+
+</body>
+
+</html>
