@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>08-加减乘除计算器</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="add1">
+        <select v-model="sign">
+            <option value="add">+</option>
+            <option value="del">-</option>
+            <option value="mul">*</option>
+            <option value="div">÷</option>
+        </select>
+        <input type="text" v-model="add2"> <button v-on:click="handleAdd">=</button> {{ total }}
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                add1: '',
+                add2: '',
+                total: '',
+                sign: 'div'
+            },
+            methods: {
+                handleAdd() {
+                    switch (this.sign) {
+                        case 'add':
+                            this.total = parseInt(this.add1) + parseInt(this.add2);
+                            break;
+                        case 'del':
+                            this.total = parseInt(this.add1) - parseInt(this.add2);
+                            break;
+                        case 'mul':
+                            this.total = parseInt(this.add1) * parseInt(this.add2);
+                            break;
+                        case 'div':
+                            this.total = parseInt(this.add1) / parseInt(this.add2);
+                            this.total = this.total.toFixed(6);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

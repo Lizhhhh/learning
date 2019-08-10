@@ -1,0 +1,15 @@
+<div>发现音乐</div>
+<ul id="find-music-container"></ul>
+<script type="text/template" id="tpl-find-music">
+    {{ each todos}}
+    <li> {{ $value.title }}</li>
+    {{ /each}}
+</script>
+<script>
+    $.get("http://127.0.0.1:3000/todos", function(data) {
+        var htmlStr = template('tpl-find-music', {
+            todos: data
+        })
+        $('#find-music-container').html(htmlStr)
+    })
+</script>

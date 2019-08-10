@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <title>06-计算购物车</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="row">
+            <div class="col-md-2">
+                <label for="">商品价格</label>
+                <input type="number" class="form-control" v-model="price">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label for="">商品数量</label>
+                <button class="btn btn-xs" v-on:click="handleCountClick">-</button> <span class="">{{ number }}</span><button class="btn btn-xs" v-on:click="number++">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                总价: <strong>{{ price * number }}</strong>
+            </div>
+        </div>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                price: '8699',
+                number: '15',
+            },
+            methods: {
+                handleCountClick() {
+                    this.number = this.number - 1 < 0 ? 0 : this.number - 1;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

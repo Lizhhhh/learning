@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header">
+        头部
+    </div>
+    <div class="aside">
+        <ul>
+            <li><a href="#/">发现音乐</a></li>
+            <li><a href="#/my-music">我的音乐</a></li>
+            <li><a href="#/friend">朋友</a></li>
+        </ul>
+    </div>
+    <!-- 其他页面都要显示在这个容器中 -->
+    <div id="container"></div>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/art-template/lib/template-web.js"></script>
+    <script>
+        window.onhashchange = function() {
+            var hash = window.location.hash.substr(1);
+            if (hash === '/') {
+                $.get('./find-music.html', function(data) {
+                    $('#container').html(data);
+                })
+            } else if (hash === '/my-music') {
+                $.get('./my-music.html', function(data) {
+                    $('#container').html(data);
+                })
+            } else if (hash === '/friend') {
+                $.get('./friend.html', function(data) {
+                    $('#container').html(data);
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>
