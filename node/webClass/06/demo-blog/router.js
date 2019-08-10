@@ -14,7 +14,6 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', function(req, res) {
-    console.log(req.body);
     var body = req.body
     User.findOne({
         email: body.email,
@@ -92,4 +91,13 @@ router.post('/register', function(req, res) {
 
 });
 
+router.get('/logout', function(req, res) {
+    req.session.user = null;
+    res.redirect('/login');
+})
+
+router.get('/topics/new', function(req, res) {
+    console.log(req.session.user, "session user");
+    res.render("topic/new.html");
+})
 module.exports = router;
