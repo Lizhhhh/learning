@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>03-跑马灯效果</title>
+</head>
+
+<body>
+    <div id='app'>
+        <p> <button @click="handleMoveEvent">浪起来</button>
+            <button @click="handleStopeEvent">猥琐</button></p>
+        <p> {{ msg }} </p>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                msg: "猥琐发育,别浪",
+                timer: ''
+            },
+            methods: {
+                handleMoveEvent() {
+                    this.timer = setInterval(() => {
+                        let start = this.msg.substring(0, 1);
+                        let end = this.msg.substring(1);
+                        this.msg = end.concat(start);
+                    }, 0.3 * 1000);
+                },
+                handleStopeEvent() {
+                    window.clearInterval(this.timer);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

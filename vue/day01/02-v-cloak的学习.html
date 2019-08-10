@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>02-v-cloak的学习</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <p v-cloak> {{ msg2 }}</p>
+        <div v-html="msg2"></div>
+
+        <input type="button" value="按钮" title="h3" v-bind:title="mytitle">
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                msg: '你好!',
+                msg2: '<h1>哈哈,我是一个大大的H1,我大,我骄傲,我大我傲娇!</h1>',
+                mytitle: '这是一个自定义的title'
+            }
+        });
+    </script>
+
+</body>
+
+</html>
