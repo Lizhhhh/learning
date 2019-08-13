@@ -27,7 +27,7 @@
                             <i class="glyphicon glyphicon-phone text-muted"></i>
                             <span class="text-muted"> 关注微信号</span>
                             <span class="caret text-muted"></span>
-                            <img src="./imgs/my_code.PNG" alt="李子豪" width="130">
+                            <img src="./imgs/my_code.jpg" alt="李子豪" width="130">
                         </a>
                     </div>
                     <div class="top-bar-2 col-md-5">
@@ -57,7 +57,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img src="./imgs/1.png" alt="" srcset="" height="53">
+                        <img src="./imgs/1.jpg" alt="" srcset="" height="53">
                     </a>
                 </div>
 
@@ -91,9 +91,9 @@
             </ol>
             <!-- 中间滚动的内容 -->
             <div class="carousel-inner" role="listbox">
-                <div class="item active" data-lg-img="./imgs/carousel01.PNG"></div>
-                <div class="item" data-lg-img="./imgs/carousel02.PNG"></div>
-                <div class="item" data-lg-img="./imgs/carousel03.PNG"></div>
+                <div class="item active" data-lg-img="./imgs/carousel01.jpg"></div>
+                <div class="item" data-lg-img="./imgs/carousel02.jpg"></div>
+                <div class="item" data-lg-img="./imgs/carousel03.jpg"></div>
             </div>
             <!-- 控制器 -->
             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -126,7 +126,7 @@
                     <p>Node is similar in design to, and influenced by, systems like Ruby's Event Machine or Python's Twisted. Node takes the event model a bit further. It presents an event loop as a runtime construct instead of as a library. In other systems there is always a blocking call to start the event-loop. Typically behavior is defined through callbacks at the beginning of a script and at the end starts a server through a blocking call like EventMachine::run(). In Node there is no such start-the-event-loop call. Node simply enters the event loop after executing the input script. Node exits the event loop when there are no more callbacks to perform. This behavior is like browser JavaScript — the event loop is hidden from the user.</p>
                 </div>
                 <div class="col-md-4">
-                    <img src="./imgs/1.png" alt="逐渐失去耐心" class="img-responsive img-circle">
+                    <img src="./imgs/1.jpg" alt="逐渐失去耐心" class="img-responsive img-circle">
                 </div>
             </div>
         </div>
@@ -156,7 +156,7 @@
                                 <div id="pd_one_1" class="media">
                                     <div class="media-left">
                                         <a href="#">
-                                            <img class="media-object" src="./imgs/my_code.png" alt="..." width="140">
+                                            <img class="media-object" src="./imgs/my_code.jpg" alt="..." width="140">
                                         </a>
                                     </div>
                                     <div class="media-body" style="padding-top:100px;">
@@ -211,17 +211,17 @@
 
                         <!-- 滑动窗口 -->
                         <div class="carousel-inner" role="listbox">
-                            <div class="item active" data-lg-img="./imgs/private01.PNG"></div>
-                            <div class="item " data-lg-img="./imgs/private02.PNG"></div>
-                            <div class="item " data-lg-img="./imgs/private03.PNG"></div>
-                            <div class="item " data-lg-img="./imgs/private04.PNG"></div>
-                            <div class="item " data-lg-img="./imgs/private05.PNG"></div>
-                            <div class="item " data-lg-img="./imgs/private06.PNG"></div>
-                            <div class="item " data-lg-img="./imgs/private07.PNG"></div>
-                            <div class="item " data-lg-img="./imgs/private08.PNG"></div>
-                            <div class="item " data-lg-img="./imgs/private09.PNG"></div>
-                            <div class="item " data-lg-img="./imgs/private10.PNG"></div>
-                            <div class="item " data-lg-img="./imgs/private11.PNG"></div>
+                            <div class="item active" data-lg-img="./imgs/private01.jpg"></div>
+                            <div class="item " data-lg-img="./imgs/private02.jpg"></div>
+                            <div class="item " data-lg-img="./imgs/private03.jpg"></div>
+                            <div class="item " data-lg-img="./imgs/private04.jpg"></div>
+                            <div class="item " data-lg-img="./imgs/private05.jpg"></div>
+                            <div class="item " data-lg-img="./imgs/private06.jpg"></div>
+                            <div class="item " data-lg-img="./imgs/private07.jpg"></div>
+                            <div class="item " data-lg-img="./imgs/private08.jpg"></div>
+                            <div class="item " data-lg-img="./imgs/private09.jpg"></div>
+                            <div class="item " data-lg-img="./imgs/private10.jpg"></div>
+                            <div class="item " data-lg-img="./imgs/private11.jpg"></div>
                         </div>
 
                         <!-- 控制器 -->
@@ -257,7 +257,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6 hidden-sm hidden-xs">
-                                <img src="./imgs/private12.PNG" height="700">
+                                <img src="./imgs/private12.jpg" height="700">
                             </div>
                         </div>
                     </div>
@@ -551,6 +551,25 @@
                             backgroundImage: imgUrl
                         })
                     })
+                } else {
+                    $allItems.each(function(index, item) {
+                        $(item).empty();
+                        let src = $(item).data("lg-img");
+                        let imgUrl = 'url("' + src + '")';
+                        $(item).css({
+                            backgroundImage: imgUrl
+                        })
+                    })
+
+                    $allItems2.each(function(index, item) {
+                        $(item).empty();
+                        let src = $(item).data("lg-img");
+                        let imgUrl = 'url("' + src + '")';
+                        $(item).css({
+                            backgroundImage: imgUrl
+                        })
+                    })
+
                 }
 
             }
