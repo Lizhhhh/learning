@@ -1,0 +1,333 @@
+/***********************************通用样式******************************/
+body {
+    font-size: 15px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #000;
+}
+
+
+.btn-register {
+    color: #ffffff;
+    background-color: #0AB4F7;
+    border-color: #FFFFFF;
+}
+
+.btn-register:hover,
+.btn-register:focus,
+.btn-register:active,
+.btn-register.active,
+.open .dropdown-toggle.btn-register {
+    color: #ffffff;
+    background-color: #086DF2;
+    border-color: #FFFFFF;
+}
+
+.btn-register:active,
+.btn-register.active,
+.open .dropdown-toggle.btn-register {
+    background-image: none;
+}
+
+.btn-register.disabled,
+.btn-register[disabled],
+fieldset[disabled] .btn-register,
+.btn-register.disabled:hover,
+.btn-register[disabled]:hover,
+fieldset[disabled] .btn-register:hover,
+.btn-register.disabled:focus,
+.btn-register[disabled]:focus,
+fieldset[disabled] .btn-register:focus,
+.btn-register.disabled:active,
+.btn-register[disabled]:active,
+fieldset[disabled] .btn-register:active,
+.btn-register.disabled.active,
+.btn-register[disabled].active,
+fieldset[disabled] .btn-register.active {
+    background-color: #0AB4F7;
+    border-color: #FFFFFF;
+}
+
+.btn-register .badge {
+    color: #0AB4F7;
+    background-color: #ffffff;
+}
+
+/*********************************** /通用样式******************************/
+
+/***********************************头部样式******************************/
+#lk_header {}
+
+#lk_header .top-bar {
+    height: 40px;
+    border: 1px solid #e0e0e0;
+    line-height: 39px;
+}
+
+#lk_header .top-bar .container .row>div+div {
+    border-left: 1px solid #e0e0e0;
+}
+
+#lk_header .top-bar .container .row .top-bar-1 a {
+    position: relative;
+}
+
+#lk_header .top-bar .container .row .top-bar-1 a img {
+    display: none;
+    position: absolute;
+    margin-left: 15px;
+    margin-top: -5px;
+    z-index: 9999;
+}
+
+#lk_header .top-bar .container .row .top-bar-1 a:hover img {
+    display: block;
+}
+
+#lk_header .navbar-lk {
+    background-color: #fff;
+}
+
+#lk_header .navbar-header .navbar-brand {
+    height: 70px;
+    padding: 8px 15px;
+}
+
+.nav li a {
+    height: 70px;
+    line-height: 40px;
+}
+
+
+#lk_header .navbar-lk .navbar-nav li.active a,
+#lk_header .navbar-lk .navbar-nav li a:hover {
+    background-color: transparent;
+    border-bottom: 2px solid #0AB4F7;
+}
+
+#lk_header .navbar-lk .navbar-toggle {
+    margin-top: 18px;
+}
+
+#lk_header .navbar {
+    margin-bottom: 0px;
+}
+
+
+/*********************************** /头部样式 ******************************/
+
+/*********************************** 焦点图样式 ******************************/
+#carousel-example-generic .item {
+    height: 700px;
+    background-size: cover;
+    background: no-repeat center center;
+}
+
+/********************************** /焦点图样式 ******************************/
+
+/********************************** About样式 ******************************/
+#lk_about {
+    padding: 20px 0;
+}
+
+#lk_about .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#lk_about p {
+    color: #777777;
+    line-height: 26px;
+    font-size: 15px;
+}
+
+/********************************** /About样式 ******************************/
+
+/********************************** 产品特色样式 ******************************/
+#lk_product {
+    color: #777777;
+    background: #f0f0f0;
+    padding: 30px 0;
+}
+
+#lk_product .nav {
+    font-size: 18px
+}
+
+
+#lk_product .row li a {
+    color: #999;
+}
+
+#lk_product .row li.active a {
+    border: none;
+    color: #000;
+    border-bottom: 2px solid red;
+    background: transparent;
+}
+
+#lk_product .row li a:active {
+    border: none;
+    color: #000;
+    border-bottom: 2px solid red;
+    background: transparent;
+}
+
+#pd_one_2 {
+    background: transparent;
+    padding: 15px 0;
+    font-size: 18px;
+}
+
+#pd_one_2 a {
+    color: #0AB4F7 !important;
+}
+
+#pd_one_3 {
+    color: #000;
+}
+
+#pd_one_3 strong a {
+    color: maroon;
+    text-decoration: none
+}
+
+
+#lz_private_img .item {
+    height: 700px;
+    background-size: cover;
+    background: no-repeat center center;
+}
+
+#lk_product .container {
+    margin-top: 20px;
+}
+
+#lk_product .pd-left {
+    padding: 40px 0;
+}
+
+/********************************* /产品特色样式 ******************************/
+
+
+
+/************************************* 热门课程 ******************************/
+#lk_hot {
+    padding: 20px 0;
+}
+
+#lk_hot .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/************************************ /热门课程 ******************************/
+
+
+/************************************  友情链接 ******************************/
+#lk_link {
+    padding: 20px 0;
+}
+
+#lk_link .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/************************************ /友情链接 ******************************/
+
+
+/************************************  热门课程 ******************************/
+#lk_hot .lz_lesson {
+    padding: 15px 10px;
+}
+
+#lk_hot .lz_lesson .media-left {
+    width: 20%;
+}
+
+#lk_hot .lz_lesson .media-body {
+    width: 60%;
+    vertical-align: middle;
+}
+
+#lk_hot .lz_lesson .media-right {
+    width: 20%;
+    vertical-align: middle;
+}
+
+/************************************ /热门课程 ******************************/
+
+/************************************  友情链接 ******************************/
+#lk_link .lz_logo {
+    list-style: none;
+    text-align: center;
+}
+
+#lk_link .lz_logo li {
+    display: inline-block;
+    padding: 20px 30px;
+}
+
+/************************************ /友情链接 ******************************/
+
+
+
+/************************************  尾部 ******************************/
+#lk_footer {
+    width: 100%;
+
+    height: 200px;
+    background: url("../imgs/bg1.jpg") no-repeat center;
+    background-size: cover;
+    color: #fff;
+}
+
+#lk_footer li {
+    list-style: none;
+}
+
+#lk_footer ul a {
+    color: #fff;
+}
+
+
+#lk_footer .lz-footer-1,
+#lk_footer .lz-footer-2 {
+    padding: 10px;
+    border-right: 1px solid #666;
+    height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#lk_footer .lz-footer-1 li {
+    line-height: 40px;
+}
+
+#lk_footer .lz-footer-3 {
+    padding: 10px 50px;
+    height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#lk_footer .lz-footer-3 img{
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+
+
+/************************************ /尾部 ******************************/
