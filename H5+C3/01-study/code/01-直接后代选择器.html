@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-直接后代选择器</title>
+    <style>
+        #main+div {
+            color: red;
+        }
+
+        #main~div {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+    </div>
+    <div>兄弟元素1
+        <span>兄弟1 > 子元素1</span>
+    </div>
+    <div>兄弟元素2
+        <span>兄弟2 > 子元素2</span>
+    </div>
+    <div>兄弟元素3
+        <span>兄弟3 > 子元素3</span>
+    </div>
+    <div>兄弟元素4
+        <span>兄弟4 > 子元素4</span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-事件修饰符</title>
+    <style>
+        .inner {
+            height: 150px;
+            background-color: darkcyan;
+        }
+
+        .outer {
+            padding: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <h4>{{ msg }}</h4>
+
+        <input type="text" v-model="msg" style="width:100%">
+
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '大家都是好学生,爱敲代码,带学习,爱思考,简直完美,没瑕疵!'
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>04-事件修饰符</title>
+    <style>
+        .inner {
+            height: 150px;
+            background-color: darkcyan;
+        }
+
+        .outer {
+            padding: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <div class="outer" @click="div2Handler">
+            <div class="inner" @click.self="divHandler">
+                <input type="button" value="戳他" @click="btnHanlder">
+            </div>
+        </div>
+
+        <a href="http://www.huya.com" @click.prevent="linkHandle">看直播,上虎牙</a>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                divHandler() {
+                    console.log("inner Handle");
+                },
+                div2Handler() {
+                    console.log("outer Handle");
+                },
+                btnHanlder() {
+                    console.log("btn Handle");
+                },
+                linkHandle() {
+                    console.log("link Handle");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
