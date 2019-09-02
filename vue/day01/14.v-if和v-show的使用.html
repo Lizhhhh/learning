@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <div>
+            <button @click="toggle">点击切换隐藏!</button>
+            <h3 v-if="flag">这是一个v-if控制的元素</h3>
+            <h3 v-show="flag">这是用v-show控制的元素</h3>
+        </div>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                flag: false
+            },
+            methods: {
+                toggle() {
+                    this.flag = !this.flag;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

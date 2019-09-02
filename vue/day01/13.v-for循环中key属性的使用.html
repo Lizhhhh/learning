@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <div>
+            <span>
+                <label for="id">Id:</label>
+                <input type="text" v-model="id" id="id">
+            </span>
+            <span>
+                <label for="id">Name:</label>
+                <input type="text" v-model="name" id="name">
+            </span>
+            <span>
+                <button @click="handleClick">添加</button>
+            </span>
+        </div>
+        <ul>
+            <li v-for="item in list" :key="item.id">
+                <span><input type="checkbox"></span>
+                <span> {{item.id}} - {{item.name}}</span>
+            </li>
+        </ul>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    { id: 1, name: '李斯' },
+                    { id: 2, name: '嬴政' },
+                    { id: 3, name: '赵高' },
+                    { id: 4, name: '韩非' },
+                    { id: 5, name: '荀子' },
+                ],
+                id: '',
+                name: ''
+            },
+            methods: {
+                handleClick() {
+                    let item = {
+                        id: this.id,
+                        name: this.name
+                    }
+                    this.list.unshift(item);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

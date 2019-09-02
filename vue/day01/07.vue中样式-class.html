@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>07.vue中样式-class</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .thin {
+            font-weight: 200;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .active {
+            letter-spacing: 0.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- bind方式绑定类 -->
+        <!-- <h1 :class="['thin','italic']">这是一个很大很大的H1,大到你无法想象!!!</h1> -->
+
+        <!-- 三元表达式来显示类 -->
+        <!-- <h1 :class="['thin','italic',flag ?'active':'']">这是一个很大很大的H1,大到你无法想象!!!</h1> -->
+
+
+        <!-- 在数组中使用对象来代替三元表达式(提高代码的可读性) -->
+        <!-- <h1 :class="['thin','italic',{'active':flag}]">这是一个很大很大的H1,大到你无法想象!!!</h1> -->
+
+        <!-- 以对象的形式代替数组 -->
+        <h1 :class="classObj">这是一个很大很大的H1,大到你无法想象!!!</h1>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                flag: true,
+                classObj: { red: true, active: this.flag, thin: true }
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

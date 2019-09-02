@@ -39,7 +39,7 @@ class _MovieListSate extends State<MovieList> {
   @override
   Widget build(BuildContext context) {
     // return Text("这是电影列表页面 ---- " + widget.mt);
-    return Text("这是电影列表页面 --- " + widget.mt);
+    return Text("这是电影列表页面 --- ");
   }
 
   getMovieList() async {

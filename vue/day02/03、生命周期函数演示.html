@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+      <span><button type="button" value="修改msg" @click="msg = 'No'">1</button></span>
+        <h3 id="h3">{{ msg }}</h3>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/bootstrap/dist/css/bootstrap.css"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                msg: 'ok'
+            },
+            methods: {
+                show() {
+                    console.log("show of methods");
+                }
+            },
+            // 第一个生命周期函数,表示实力完全被创建出来之前会执行它
+            // beforeCreate() {
+            //   console.log(this.msg);
+            //   this.show();
+            // },
+            created() {
+                // console.log('第二个生命周期函数');
+                // console.log(this.msg);
+                // this.show();
+            },
+            beforeMount() {
+                // // 表示模板已经在内存中编译完成,但是并未渲染到页面中
+                // console.log("第3个生命周期函数");
+                // console.log(document.getElementById('h3').innerHTML);
+            },
+            mounted(){
+              // console.log("第4个生命周期函数");
+              // console.log(document.getElementById('h3').innerHTML);
+            },
+            beforeUpdate(){
+              // console.log("可选的触发的第5个生命周期");
+              // console.log(document.getElementById('h3').innerHTML);
+              // console.log(this.msg);
+            },
+            updated(){
+              // console.log(document.getElementById('h3').innerHTML);
+              // console.log(this.msg);
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,19 +1,27 @@
-var combinationSum = function(candidates, target) {
-  let path=[];
-  var res = []
-  function DFS(start, target){
-      if(target === 0){
-          res.push(path)
-      }
-      for(let i = start; i< candidates.length && target - candidates[i]>= 0; i++){
-          path.push(candidates[i]);
-          DFS(i,target - candidates[i]);
-          path.pop()
-      }
-  }
-  DFS(0,target);
-  console.log(res);
+var reverseVowels = function(s) {
+    let map = ['a', 'e', 'i', 'o', 'u'];
+    let index = [];
+    for (let i = 0; i < s.length; i++) {
+        if (map.indexOf(s[i]) >= 0) {
+            index.push(i)
+        }
+    }
+    if (index.length <= 1) {
+        return s
+    }
+    let m = 0;
+    let n = index.length - 1;
+    let start = index[m];
+    let end = index[n];
+    s = s.split('');
+    while (start < end) {
+        let tmp = s[start];
+        s[start] = s[end];
+        s[end] = tmp;
+        start = index[++m];
+        end = index[--n];
+    }
+    return s.join('');
 };
 
-let arr = [2,3,6,7]
-combinationSum(arr,7);
+console.log(reverseVowels("ai"));

@@ -10,23 +10,136 @@
 </head>
 
 <body>
-    <table class="table table-bordered table-hover table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Ctime</th>
-                <th>Operation</th>
-            </tr>
-        </thead>
-    </table>
-    <div id="app"></div>
+    <div id="app">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title" v-fontsize="30" v-fontweight="900">添加品牌</h3>
+            </div>
+            <div class="panel-body form-inline">
+                <label>
+                    Id:
+                    <input type="text" class="form-control" v-model='id' @keyup.enter="handleAddBrand">
+                </label>
+
+                <label>
+                    Name:
+                    <input type="text" class="form-control" v-model='name' @keyup.enter="handleAddBrand">
+                </label>
+
+                <input type="button" value="添加" class="btn btn-primary" @click="handleAddBrand">
+
+                <label>
+                    搜索名称关键字:
+                    <input type="text" class="form-control" v-model='keywords' @keyup.enter="search" v-focus v-color>
+                </label>
+            </div>
+        </div>
+
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Ctime</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item,index) in search(keywords)" :key="item.id">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.ctime| dateFormat }}</td>
+                    <td>
+                        <a href="" @click.prevent="del(index)">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
     <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/bootstrap/dist/css/bootstrap.css"></script>
     <script>
+        // 使用 Vue.directive() 定义全局的指令
+        // @params1:指令的名称
+        // @params2: Object
+        Vue.directive('focus', {
+            bind: function(el) {
+                // 在元素 刚绑定了指令的时候 还没有插入到DOM,这时候,focous方法无效.
+            },
+            inserted: function(el) {
+                el.focus();
+            },
+            updated: function() {}
+        })
+
+        Vue.directive('color', {
+            bind: function(el) {
+                el.style.color = 'red'
+            }
+        })
+
+
+        Vue.filter('dateFormat', function(dateStr, partten = '') {
+            var dt = new Date(dateStr)
+            var y = dt.getFullYear();
+            // 全局过滤器, 进行时间的格式化
+            var m = (dt.getMonth() + 1).toString().padStart(2, '0');
+            var d = dt.getDate().toString().padStart(2, '0');
+            if (partten.toLowerCase() === 'yyyy-mm-dd') {
+                return `${y}-${m}-${d}`
+            } else {
+                var hh = dt.getHours().toString().padStart(2, '0');
+                var mm = dt.getMinutes().toString().padStart(2, '0');
+                var ss = dt.getSeconds().toString().padStart(2, '0');
+                return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+            }
+
+        })
         const app = new Vue({
             el: '#app',
             data: {
-
+                list: [
+                    { id: 1, name: '奔驰', ctime: new Date() },
+                    { id: 2, name: '宝马', ctime: new Date() },
+                ],
+                id: '',
+                name: '',
+                keywords: '', // 搜索关键字
+            },
+            methods: {
+                handleAddBrand() {
+                    let item = {
+                        id: this.id,
+                        name: this.name,
+                        ctime: new Date()
+                    }
+                    this.list.push(item);
+                    this.id = this.name = '';
+                },
+                del(i) {
+                    this.list.splice(i, 1);
+                },
+                search(keywords) {
+                    let newList = [];
+                    this.list.forEach((item) => {
+                        if (item.name.indexOf(keywords) !== -1) {
+                            newList.push(item);
+                        }
+                    })
+                    return newList
+                }
+            },
+            directives: {
+                'fontweight': {
+                    bind: function(el, binding) {
+                        el.style.fontWeight = parseInt(binding.value) + 'px'
+                    }
+                },
+                'fontsize': function(el, binding) {  // 代表同时写了bind 和 updated 函数
+                    el.style.fontSize = parseInt(binding.value) + 'px'
+                }
             }
         })
     </script>
