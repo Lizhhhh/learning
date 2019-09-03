@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <button @click="flag=!flag">点击</button>
+
+        <transition enter-active-class=" bounceInRight" leave-active-class=" bounceOutRight" :duration="{enter:1000, leave:1200}">
+            <h3 v-show="flag" class="animated">这是一个H3</h3>
+        </transition>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+
+            el: '#app',
+            data: {
+                flag: false
+            },
+
+            methods: {
+
+            },
+        })
+    </script>
+</body>
+
+</html>

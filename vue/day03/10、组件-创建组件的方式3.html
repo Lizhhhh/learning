@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <my-com1></my-com1>
+    </div>
+
+    <div id="app2">
+        <my-com1></my-com1>
+        <login></login>
+    </div>
+    <template id="tmp1">
+        <div>
+            <h1>这是通过 template 元素在外部定义的组件结构.</h1>
+        </div>
+    </template>
+
+    <template id="tmp2">
+        <h1>这是私有的h1属性</h1>
+    </template>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        // 使用 Vue.extend 来创建全局Vue的组件
+        var com1 = Vue.extend({
+            template: "<h3>这是一个 Vue.extend 创建的组件 </h3>"
+        })
+        // 使用Vue.component 挂载组件
+        Vue.component('myCom1', {
+            template: '#tmp1'
+        });
+        const vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            },
+        })
+
+        const vm2 = new Vue({
+            el: '#app2',
+            data: {},
+            methods: {},
+            components: { // 定义为实力内部私有属性
+                login: {
+                    template: '#tmp2'
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

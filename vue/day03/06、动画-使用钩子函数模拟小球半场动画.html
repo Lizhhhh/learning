@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.css">
+    <style>
+        .ball {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="快到碗里来" @click="flag=!flag">
+        <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+            <div class="ball" v-if="flag"></div>
+        </transition>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                flag: false
+            },
+            methods: {
+                beforeEnter(el) {
+
+                    // 设置小球 开始动画的起始位置
+                    el.style.transform = "translate(0,0)"
+                },
+                enter(el, done) {
+                    // el.offsetWidth 会强制动画刷新
+                    el.offsetWidth;
+                    el.style.transform = "translate(150px, 450px)";
+                    el.style.transition = "all 1s ease";
+
+                    // done是afterEnter函数的引用...表示结束了 立即调用afterEnter()
+                    done()
+                },
+                afterEnter(el) {
+
+                    this.flag = false;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

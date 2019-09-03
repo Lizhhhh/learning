@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <my-com1></my-com1>
+    </div>
+    <template id="tmp1">
+        <div>
+            <h1>这是全局组件. </h1>
+            <p>{{msg}}</p>
+        </div>
+
+    </template>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('myCom1', {
+            template: '#tmp1',
+            data: function() {
+                return {
+                    msg: '这是组件中自己定义的数据'
+                }
+            }
+        });
+        const vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        /* 进入 */
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(882px);
+        }
+
+        /* 渐入、渐出的时间段    */
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.8s ease;
+        }
+
+
+        /* 渐出 */
+        .v-enter-to,
+        .v-leave {
+            opacity: 1;
+        }
+
+
+        /* 进入 */
+        .my-enter,
+        .my-leave-to {
+            opacity: 0;
+            transform: translateY(500px);
+        }
+
+        /* 渐入、渐出的时间段    */
+        .my-enter-active,
+        .my-leave-active {
+            transition: all 0.8s ease;
+        }
+
+
+        /* 渐出 */
+        .my-enter-to,
+        .my-leave {
+            opacity: 1;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="toggle">点击</button>
+
+        <transition>
+            <h3 v-show="flag">这是一个H3</h3>
+        </transition>
+
+        <hr>
+
+        <input type="button" value="toggle2" @click="flag2=!flag2">
+        <transition name="my">
+            <h6 v-show="flag2">这是一个h6</h6>
+        </transition>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/vue-resource/dist/vue-resource.js"></script>
+    <script>
+        Vue.http.options.emulateHTTP = true;
+        const app = new Vue({
+
+            el: '#app',
+            data: {
+                flag: false,
+                flag2: false
+            },
+
+            methods: {
+                toggle() {
+                    this.flag = !this.flag;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
