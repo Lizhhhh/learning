@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <div id="app">
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加小汽车!</h3>
+            </div>
+            <div class="panel-body form-inline">
+                <label>
+                    Name:
+                    <input type="text" v-model="name" class="form-control">
+                </label>
+                <input type="button" value="添加" @click="add" class='btn btn-primary'>
+            </div>
+        </div>
+
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Ctime</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item,index) in list" :key="item.id">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.ctime}}</td>
+                    <td>
+                        <a href="" @click.prevent="del(item.id)">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/vue-resource/dist/vue-resource.js"></script>
+    <script>
+        Vue.http.options.emulateHTTP = true;
+        const app = new Vue({
+            http: {
+                root: 'http://127.0.0.1:3000/', // 根目录配置
+            },
+            el: '#app',
+            data: {
+                name: '',
+                list: []
+            },
+            created() {
+                this.getAllList();
+            },
+            methods: {
+                add() {
+                    let url = "addProduct";
+                    let params = {
+                        name: this.name
+                    }
+                    this.$http.post(url, params, { emulateJSON: true }).then((res) => {
+                        this.getAllList();
+                        this.name = '';
+                    })
+                },
+                del(id) {
+                    let url = "delProduct"
+                    let params = {
+                        id: id
+                    }
+                    this.$http.post(url, params, { emulateJSON: true }).then((res) => {
+                        if (res.body.state === 200) {
+                            this.getAllList();
+                        }
+                    })
+                },
+                getAllList() {
+                    // 获取所有品牌列表
+                    let url = 'getAllList';
+                    this.$http.get(url).then((res) => {
+                        var res = res.body;
+                        this.list = res.msg;
+                    })
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
