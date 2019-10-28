@@ -7,14 +7,7 @@ class Lz {
         // 数据响应式
         this.$data = options.data;
         this.$el = options.el;
-        // this.observe(this.$data);
-
-        // // 模拟一下watcher创建
-        // new Watcher();
-        // this.$data.test;
-
-        // new Watcher();
-        // this.$data.foo;
+        this.observe(this.$data);
 
         new Compile(this.$el, this);
 
@@ -55,7 +48,6 @@ class Lz {
                 return val
             },
             set(newVal) {
-              console.log(111);
                 if (newVal === val) return;
                 else {
                     // console.log(`${key}属性更新: ${val} --- > ${newVal}`);
